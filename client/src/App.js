@@ -57,7 +57,7 @@ class App extends Component {
 
   async deletePlace(id) {
     try {
-      const place = await AXIOS.deletePlace(id);
+      await AXIOS.deletePlace(id);
     } catch (e) {
       console.log("REACT - request to AXIOS failed - Could not DELETE place ", e);
     }
@@ -65,7 +65,7 @@ class App extends Component {
 
   async updatePlace(data) {
     try {
-      const place = await AXIOS.updatePlace(data);
+      await AXIOS.updatePlace(data);
     } catch (e) {
       console.log("REACT - request to AXIOS failed - Could not UPDATE place ", e)
     }
@@ -94,13 +94,52 @@ class App extends Component {
             view={this.state.placesView}
           />
         )
-      case 'Create':
+      case 'Create Place':
         return (
-          <PlacesForm />
+          <PlacesForm
+            formData={this.state.formData}
+            onChange={this.handleFormInputChange}
+            onSubmit={this.handleFormSubmit}
+          />
         )
       default:
 
     }
+  }
+
+  handleFormInputChange = (e) => {
+    const { name , value } = e.target;
+    this.setState((prevState) => ({
+      formData: {
+        ...prevState.formData,
+        [name]: value
+      }
+    }))
+  }
+
+  handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await this.postPlace(this.state.formData);
+      await this.getPlaces();
+    } catch (e) {
+      console.log("Form was not submitted ", e)
+    } finally {
+      this.clearFormData();
+      this.setView('Places');
+      this.setPlacesView('All');
+    }
+  }
+
+  clearFormData(){
+    this.setState({
+      formData: {
+        name: '',
+        description: '',
+        visited: false,
+        address: ''
+      }
+    })
   }
 
   handleDelete = async(id) => {
@@ -141,6 +180,7 @@ class App extends Component {
         <header>
           <h1>Place-Tracker</h1>
           {this.state.currentView === 'Places' && <h2>{this.state.placesView}</h2>}
+          {this.state.currentView === 'Create Place' && <h2>{this.state.currentView}</h2>}
         </header>
         <div className="Page">
           {this.getView()}
