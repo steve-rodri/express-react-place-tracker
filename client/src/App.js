@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Nav from './components/Nav';
+import Place from './components/Place';
+import PlacesList from './components/PlacesList';
 import "./App.css";
 const { AXIOS } = require("./services/AJAXRequests");
 
@@ -62,7 +65,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+      <h1>Place-Tracker</h1>
       </div>
     );
   }
