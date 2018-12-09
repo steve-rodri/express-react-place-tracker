@@ -18,6 +18,14 @@ const AXIOS = {
     } catch (e) {
       console.log("AXIOS - request failed - Could not POST place ", e);
     }
+  },
+  deletePlace: async function (id) {
+    try {
+      const resp = await axios.delete(BASE_URL + PLACES + '/' + id);
+      return resp;
+    } catch (e) {
+      console.log("AXIOS - request failed - Could not DELETE place ", e)
+    }
   }
 };
 

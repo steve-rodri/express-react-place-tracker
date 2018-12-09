@@ -4,8 +4,8 @@ const { AXIOS } = require("./services/AJAXRequests");
 
 class App extends Component {
   async componentDidMount() {
+    // await this.deletePlace(1);
     await this.getPlaces();
-    //await this.postPlace();
   }
 
   async getPlaces() {
@@ -29,6 +29,15 @@ class App extends Component {
       console.log(place);
     } catch (e) {
       console.log("REACT - request to AXIOS failed - Could not POST place ", e);
+    }
+  }
+
+  async deletePlace(id) {
+    try {
+      const place = await AXIOS.deletePlace(id);
+      console.log(place);
+    } catch (e) {
+      console.log("REACT - request to AXIOS failed - Could not DELETE place ", e);
     }
   }
 
