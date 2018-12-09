@@ -22,7 +22,19 @@ placesRouter.get("/:id", async (req, res) => {
     });
   } catch (e) {
     console.log("Could not process request for GET ONE place");
-    res.sendStatus(500);
+    res.sendStatus(404);
+  }
+});
+
+placesRouter.post("/", async (req, res) => {
+  try {
+    const place = await Place.create(req.body);
+    res.json({
+      place
+    });
+  } catch (e) {
+    console.log("Unable to process request for POST place");
+    res.sendStatus(404);
   }
 });
 
