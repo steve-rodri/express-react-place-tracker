@@ -16,19 +16,6 @@ const Place = connection.define("place", {
   visited: Sequelize.BOOLEAN
 });
 
-async function testConnection (){
-  try {
-  await connection.sync({force:true});
-  console.log('connection established')
-  } catch (e) {
-  console.log(e)
-  } finally {
-  process.exit()
-  }
-}
-
-testConnection();
-
 module.exports = {
   connection,
   Place
