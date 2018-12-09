@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "resetDb": "node resetDb.js",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
