@@ -47,6 +47,7 @@ placesRouter.delete("/:id", async (req, res) => {
     })
   } catch (e) {
     console.log("Unable to process request to DELETE place");
+    res.sendStatus(404);
   }
 })
 
