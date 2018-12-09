@@ -9,7 +9,7 @@ placesRouter.get("/", async (req, res) => {
       places
     });
   } catch (e) {
-    console.log("Could not process request for GET places");
+    console.log("Could not process request to GET places");
     res.sendStatus(404);
   }
 });
@@ -21,7 +21,7 @@ placesRouter.get("/:id", async (req, res) => {
       place
     });
   } catch (e) {
-    console.log("Could not process request for GET ONE place");
+    console.log("Could not process request to GET ONE place");
     res.sendStatus(404);
   }
 });
@@ -33,10 +33,22 @@ placesRouter.post("/", async (req, res) => {
       place
     });
   } catch (e) {
-    console.log("Unable to process request for POST place");
+    console.log("Unable to process request to POST place");
     res.sendStatus(404);
   }
 });
+
+placesRouter.delete("/:id", async (req, res) => {
+  try {
+    const place = await Place.findByPk(req.params.id);
+    await place.destroy();
+    res.json({
+      place
+    })
+  } catch (e) {
+    console.log("Unable to process request to DELETE place");
+  }
+})
 
 module.exports = {
   placesRouter
