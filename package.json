@@ -4,7 +4,8 @@
   "description": "For this exercise we are building a place tracker inspired by this [clever app](https://itunes.apple.com/us/app/see-saw-map/id791643418?mt=8) for tracking places you want to and have visited.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "resetDb": "node resetDb.js",
+    "seed": "node seed.js"
   },
   "repository": {
     "type": "git",
