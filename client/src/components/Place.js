@@ -1,4 +1,5 @@
 import React from 'react';
+import './Place.css';
 
 export default class Place extends React.Component {
   constructor(props){
