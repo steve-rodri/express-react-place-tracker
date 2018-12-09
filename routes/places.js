@@ -1,6 +1,9 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const { Place } = require("../models");
 const placesRouter = express.Router();
+
+placesRouter.use(bodyParser.json());
 
 placesRouter.get("/", async (req, res) => {
   try {
@@ -47,6 +50,20 @@ placesRouter.delete("/:id", async (req, res) => {
     })
   } catch (e) {
     console.log("Unable to process request to DELETE place");
+    res.sendStatus(404);
+  }
+})
+
+placesRouter.put("/:id", async (req, res) => {
+  try {
+    const place = await Place.findByPk(req.params.id);
+    await place.update(req.body);
+    const updatedPlace = await Place.findByPk(req.params.id);
+    res.json({
+      updatedPlace
+    })
+  } catch (e) {
+    console.log("Unable to process request to UPDATE place");
     res.sendStatus(404);
   }
 })

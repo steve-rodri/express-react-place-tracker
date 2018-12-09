@@ -26,6 +26,14 @@ const AXIOS = {
     } catch (e) {
       console.log("AXIOS - request failed - Could not DELETE place ", e)
     }
+  },
+  updatePlace: async function (data) {
+    try {
+      const resp = await axios.put(BASE_URL + PLACES + '/' + data.id, data);
+      return resp;
+    } catch (e) {
+      console.log("AXIOS - request failed - Could not UPDATE place ", e)
+    }
   }
 };
 
