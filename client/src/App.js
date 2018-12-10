@@ -119,17 +119,32 @@ class App extends Component {
 
   handleFormSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await this.postPlace(this.state.formData);
-      await this.getPlaces();
-    } catch (e) {
-      console.log("Form was not submitted ", e)
-    } finally {
-      this.clearFormData();
-      this.setView('Places');
-      this.setPlacesView('All');
+    if (!this.fieldsAreEmpty()) {
+      try {
+        await this.postPlace(this.state.formData);
+        await this.getPlaces();
+      } catch (e) {
+        console.log("Form was not submitted ", e)
+      } finally {
+        this.clearFormData();
+        this.setView('Places');
+        this.setPlacesView('All');
+      }
     }
   }
+
+  fieldsAreEmpty(){
+    if (this.state.formData.name) {
+      return false
+    } else if (this.state.formData.description) {
+      return false
+    } else if (this.state.formData.address) {
+      return false
+    } else {
+      return true
+    }
+  }
+
 
   clearFormData(){
     this.setState({
