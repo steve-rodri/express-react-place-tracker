@@ -4,3 +4,14 @@
   align-items: center;
   border-top: 2px solid black;
 }
+
+.nav-button {
+  width: 150px;
+  height: 50px;
+  margin: 0 5px;
+}
+
+.nav-button:active {
+  box-shadow: none;
+  background: #BBBBBB;
+}

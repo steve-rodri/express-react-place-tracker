@@ -28,13 +28,14 @@ export default class Place extends React.Component {
     const place = this.props.place;
     return (
       <div className="Place">
-        <div>
-          <h3>{place.name}</h3>
+        <h3 className="place-name">{place.name}</h3>
+        <div className="place-description">
+          <p className="place-address">{place.address}</p>
           <p>{place.description}</p>
         </div>
-        <div>
-          <button onClick={this.props.handleVisitChange} style={this.visitedButton()}>Visited</button>
-          {this.props.placesView === "All" && <button onClick={this.props.handleDelete}>Delete</button>}
+        <div className="buttons">
+          <button className="place-button visited-button" onClick={this.props.handleVisitChange} style={this.visitedButton()}>Visited</button>
+          {this.props.placesView === "All" && <button className="place-button delete-button" onClick={this.props.handleDelete}>Delete</button>}
         </div>
       </div>
     )

@@ -3,24 +3,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-form {
-  margin: 20px 0;
-  display: grid;
-  width: 50%;
-  height: 25%;
-}
-
-label {
-  justify-self: left;
-}
-
-input {
-  height: 25px;
+  align-items: center;
 }
 
 .submit-button {
-  height: 25px;
+  justify-self: center;
+  width: 70%;
   margin: 25px 0;
+}
+
+.submit-button:active {
+  background-color: lightgreen;
+  color: white;
 }

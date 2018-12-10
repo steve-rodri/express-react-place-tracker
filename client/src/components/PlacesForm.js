@@ -13,14 +13,14 @@ export default function PlacesForm(props){
           onChange={props.onChange}
         />
         <label>Address:</label>
-        <input
+        <textarea
           type="text"
           name="address"
           value={props.formData.address}
           onChange={props.onChange}
         />
         <label>Description:</label>
-        <input
+        <textarea
           type="text"
           name="description"
           value={props.formData.description}

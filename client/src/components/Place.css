@@ -1,0 +1,48 @@
+.Place {
+  border-bottom: 2px solid black;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+  'name buttons'
+  'description description';
+}
+
+.place-name {
+  grid-area: name;
+  font-size: 28px;
+  padding: 5px;
+  justify-self: flex-start;
+}
+
+.place-address {
+  grid-area: description;
+  font-weight: 900;
+}
+
+.place-description {
+  grid-area: description;
+  padding: 3px;
+  min-height: 100px;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete-button:active {
+  background-color: red;
+  color: white;
+}
+
+.visited-button:active {
+  background-color: blue;
+  color: white;
+}

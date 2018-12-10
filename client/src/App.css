@@ -4,17 +4,58 @@
   width: 100vw;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 12.5% 75% 12.5%;
+  grid-template-rows: 75px auto 75px;
 }
 
-h1, h2 {
-  margin: 0;
+.Page {
+  overflow: scroll;
 }
 
 header {
   border-bottom: 2px solid black;
 }
 
-.Page {
-  overflow: scroll;
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  font-size: 24px;
+  border: 2px solid black;
+  margin: 5px 3px;
+  box-shadow: 3px 3px 3px;
+  height: 45px;
+  outline: none;
+}
+
+button:active {
+  box-shadow: none;
+  border-color: lightgray;
+}
+
+form {
+  display: grid;
+  width: 70%;
+  height: 90%;
+}
+
+label {
+  font-size: 24px;
+  align-self: center;
+  justify-self: left;
+}
+
+input {
+  padding: 2px;
+  font-size: 24px;
+  border: 2px solid lightgray;
+  height: 50%;
+}
+
+textarea {
+  padding: 2px;
+  font-size: 20px;
+  border: 2px solid lightgray;
+  height: 90px;
+  resize: none;
 }
