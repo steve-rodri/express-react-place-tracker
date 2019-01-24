@@ -119,6 +119,7 @@ class App extends Component {
 
   handleFormSubmit = async (e) => {
     e.preventDefault();
+
     if (!this.fieldsAreEmpty()) {
       try {
         await this.postPlace(this.state.formData);
